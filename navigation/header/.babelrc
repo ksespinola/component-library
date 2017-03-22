@@ -1,0 +1,4 @@
+{
+  "plugins": ["transform-vue-jsx", "transform-runtime"],
+  "presets": ["es2017", "stage-2", ["env", { "modules": false }]]
+}

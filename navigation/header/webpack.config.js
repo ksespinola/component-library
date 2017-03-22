@@ -1,6 +1,7 @@
 const path = require('path');
 
 const imageminMozjpeg = require('imagemin-mozjpeg');
+
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const ImageminPlugin = require('imagemin-webpack-plugin').default;
 const WebpackNotifierPlugin = require('webpack-notifier');
@@ -16,13 +17,7 @@ module.exports = {
         test: /\.js$/,
         include: path.resolve('src'),
         loaders: [{
-          loader: 'babel-loader',
-          query: {
-            cacheDirectory: true,
-            comments: false,
-            plugins: ['transform-vue-jsx', 'transform-runtime'],
-            presets: [['env', { modules: false }], 'stage-2', 'es2015']
-          }
+          loader: 'babel-loader'
         }]
       },
       {
