@@ -1,5 +1,5 @@
 <template>
-  <div id="header">
+  <div id="header-template" class="header-wrapper">
     {{ greeting }}
   </div>
 </template>
@@ -13,12 +13,18 @@ module.exports = {
 
 </script>
 
-<style{{#sass}} lang="scss"{{/sass}}>
-
-#header {
-  display: flex;
-  width: 100%;
-  background: salmon;
+<style scoped>
+* {
+  box-sizing: border-box;
+  cursor: default;
+  margin: 0;
+  padding: 0;
 }
 
+.header-wrapper {
+  display: flex;
+  background: black;
+  color: white;
+  width: 100%;
+}
 </style>
