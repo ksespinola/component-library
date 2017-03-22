@@ -145,6 +145,10 @@ export default class Tiwae extends React.Component {
     } = this.state;
 
     const items = options.map((option, index) => {
+      if (option.configurable === false) {
+        return null;
+      }
+
       const lock = (index < this.props.lockLimit && (index === 0 || options[index - 1].locked))
         ? (<div
           className={`fa

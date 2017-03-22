@@ -6,6 +6,7 @@ import ColumnOrganizer from '../src';
 import sandboxStyles from './sandbox.scss';
 
 const def = {
+  configurable: true,
   editable: false,
   hidden: false,
   label: '',
@@ -18,7 +19,7 @@ const renderCell = (rowData, i) => <td key={`cell-${rowData.key}-${i}`}>{rowData
 
 const columnDefinitions = [
   Object.assign({ def, renderer: renderCell }, { label: 'Col A', key: 'colA' }),
-  Object.assign({ def, renderer: renderCell }, { label: 'Col B', key: 'colB' }),
+  Object.assign({ def, renderer: renderCell }, { label: 'Col B', key: 'colB', configurable: false }),
   Object.assign({ def, renderer: renderCell }, { label: 'Col C', key: 'colC' }),
   Object.assign({ def, renderer: renderCell }, { label: 'Col D', key: 'colD' }),
   Object.assign({ def, renderer: renderCell }, { label: 'Col E', key: 'colE' }),
