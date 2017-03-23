@@ -8,14 +8,23 @@
       <button class="header-button photo-container"></button>
       <div class="selection-container"></div>
       <div class="selection-container"></div>
+      <div class="selection-container"></div>
     </div>
 
     <div class="justify-right">
       <div class="icon-container">
-        <i class="icon fa fa-plug"></i>
-        <i class="icon fa fa-question-circle"></i>
-        <i class="icon fa fa-bullhorn"></i>
-        <i class="icon fa fa-circle"></i>
+        <button class="header-button">
+          <i class="icon fa fa-plug"></i>
+        </button>
+        <button class="header-button">
+          <i class="icon fa fa-question-circle"></i>
+        </button>
+        <button class="header-button">
+          <i class="icon fa fa-bullhorn"></i>
+        </button>
+        <button class="header-button">
+          <i class="icon fa fa-circle"></i>
+        </button>
       </div>
     </div>
   </div>
@@ -70,6 +79,32 @@
     width: 100%;
   }
 
+  .icon {
+    color: white;
+    cursor: pointer;
+    transition: 0.3s color ease;
+    font-size: 1.55em;
+  }
+
+  .icon-container {
+    display: flex;
+    height: 100%;
+    max-width: 150px;
+    align-self: center;
+
+    .header-button {
+      background-color: black;
+      transition: 0.3s background-color, text-shadow ease;
+
+      &:hover {
+        .icon {
+          color: darkorange;
+          text-shadow: 0px 0px 5px darkorange;
+        }
+      }
+    }
+  }
+
   .initial-container {
     background: white;
     border-radius: 50px;
@@ -81,7 +116,7 @@
   .photo-container {
     background: white;
     height: 100%;
-    max-width: 150px;
+    width: 150px;
   }
 
   .justify-right {
@@ -94,23 +129,18 @@
   }
 
   .selection-container {
-    background: slategrey;
+    background-color: transparent;
     border-right: 1px solid darkorange;
     display: flex;
     height: 100%;
     max-width: 240px;
     min-width: 150px;
-  }
+    transition: 0.3s background-color ease;
 
-  .icon {
-    color: white;
-  }
-
-  .icon-container {
-    background: slategrey;
-    display: flex;
-    height: 100%;
-    max-width: 150px;
+    &:hover {
+      background-color: slategrey;
+      cursor: pointer;
+    }
   }
 </style>
 
