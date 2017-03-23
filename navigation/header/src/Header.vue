@@ -1,8 +1,19 @@
 <template>
   <div id="header-template" class="header-wrapper">
-    <button class="back-button" @click="onBack">
+    <button class="header-button back-button" @click="onBack">
       <i class="fa fa-angle-left back-icon"></i>
     </button>
+
+    <div class="navigation">
+      <button class="header-button photo-container"></button>
+      <div class="selection-container"></div>
+      <div class="selection-container"></div>
+    </div>
+
+    <div class="justify-right">
+      <div class="icon-container">
+      </div>
+    </div>
   </div>
 </template>
 
@@ -12,6 +23,7 @@
     cursor: default;
     margin: 0;
     padding: 0;
+    flex: 1;
 
     &:focus {
       outline: none;
@@ -20,13 +32,9 @@
 
   .back-button {
     background: darkturquoise;
-    border: none;
     color: white;
-    display: flex;
     height: 100%;
-    justify-content: center;
-    transition: background 0.3s, box-shadow 0.1s ease;
-    width: 32px;
+    max-width: 32px;
 
     &:hover {
       background: darkorange;
@@ -38,7 +46,16 @@
   }
 
   .back-icon {
+    cursor: pointer;
     font-size: 2.5em;
+  }
+
+  .header-button {
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    transition: background 0.3s, box-shadow 0.1s ease;
   }
 
   .header-wrapper {
@@ -47,6 +64,37 @@
     flex-direction: row;
     height: 65px;
     width: 100%;
+  }
+
+  .photo-container {
+    background: white;
+    height: 100%;
+    max-width: 150px;
+  }
+
+  .justify-right {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .navigation {
+    display: flex;
+  }
+
+  .selection-container {
+    display: flex;
+    height: 100%;
+    max-width: 240px;
+    min-width: 150px;
+    background: slategrey;
+    border-right: 1px solid darkorange;
+  }
+
+  .icon-container {
+    display: flex;
+    height: 100%;
+    max-width: 150px;
+    background: slategrey;
   }
 </style>
 
