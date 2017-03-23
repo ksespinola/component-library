@@ -46,7 +46,7 @@
   }
 
   .back-button {
-    background: darkturquoise;
+    background: darkorange;
     color: white;
     height: 100%;
     max-width: 32px;
@@ -56,7 +56,7 @@
     }
 
     &:hover {
-      background: darkorange;
+      background: darken(darkorange, 2%);
     }
   }
 
