@@ -7,7 +7,9 @@
     <div class="navigation">
       <button class="header-button photo-container"></button>
       <div class="selection-container"></div>
+      <div class="divider"></div>
       <div class="selection-container"></div>
+      <div class="divider"></div>
       <div class="selection-container"></div>
     </div>
 
@@ -61,6 +63,13 @@
   .back-icon {
     cursor: pointer;
     font-size: 2.5em;
+  }
+
+  .divider { // this is weird
+    align-self: center;
+    background: black;
+    height: 35px;
+    max-width: 1px;
   }
 
   .header-button {
@@ -135,7 +144,6 @@
 
   .selection-container {
     background-color: transparent;
-    border-right: 1px solid darkorange;
     display: flex;
     height: 100%;
     max-width: 240px;
