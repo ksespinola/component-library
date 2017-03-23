@@ -51,12 +51,12 @@
     height: 100%;
     max-width: 32px;
 
-    &:hover {
-      background: darkorange;
+    &:active {
+      box-shadow: inset 0 0 5px black;
     }
 
-    &:active {
-      box-shadow: inset 0 0 5px #000;
+    &:hover {
+      background: darkorange;
     }
   }
 
@@ -149,6 +149,10 @@
     max-width: 240px;
     min-width: 150px;
     transition: 0.3s background-color ease;
+
+    &:active {
+      box-shadow: inset 0 0 10px black;
+    }
 
     &:hover {
       background-color: rgba(0, 0, 0, 0.4);
