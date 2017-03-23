@@ -1,6 +1,8 @@
 <template>
   <div id="header-template" class="header-wrapper">
-    <button class="back-button" @click="onBack"><i class="fa fa-angle-left back-icon"></i></button>
+    <button class="back-button" @click="onBack">
+      <i class="fa fa-angle-left back-icon"></i>
+    </button>
   </div>
 </template>
 
@@ -23,7 +25,7 @@
     display: flex;
     height: 100%;
     justify-content: center;
-    transition: background 0.3s ease;
+    transition: background 0.3s, box-shadow 0.1s ease;
     width: 32px;
 
     &:hover {
