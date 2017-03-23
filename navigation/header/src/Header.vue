@@ -12,6 +12,10 @@
 
     <div class="justify-right">
       <div class="icon-container">
+        <i class="icon fa fa-plug"></i>
+        <i class="icon fa fa-question-circle"></i>
+        <i class="icon fa fa-bullhorn"></i>
+        <i class="icon fa fa-circle"></i>
       </div>
     </div>
   </div>
@@ -21,9 +25,9 @@
   * {
     box-sizing: border-box;
     cursor: default;
+    flex: 1;
     margin: 0;
     padding: 0;
-    flex: 1;
 
     &:focus {
       outline: none;
@@ -66,6 +70,14 @@
     width: 100%;
   }
 
+  .initial-container {
+    background: white;
+    border-radius: 50px;
+    display: flex;
+    max-height: 25px;
+    max-width: 25px;
+  }
+
   .photo-container {
     background: white;
     height: 100%;
@@ -82,19 +94,23 @@
   }
 
   .selection-container {
+    background: slategrey;
+    border-right: 1px solid darkorange;
     display: flex;
     height: 100%;
     max-width: 240px;
     min-width: 150px;
-    background: slategrey;
-    border-right: 1px solid darkorange;
+  }
+
+  .icon {
+    color: white;
   }
 
   .icon-container {
+    background: slategrey;
     display: flex;
     height: 100%;
     max-width: 150px;
-    background: slategrey;
   }
 </style>
 
