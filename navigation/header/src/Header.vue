@@ -1,6 +1,6 @@
 <template>
   <div id="header-template" class="header-wrapper">
-    <button class="back-button"><i class="fa fa-angle-left back-icon"></i></button>
+    <button class="back-button" @click="onBack"><i class="fa fa-angle-left back-icon"></i></button>
   </div>
 </template>
 
@@ -10,6 +10,10 @@
   cursor: default;
   margin: 0;
   padding: 0;
+
+  &:focus {
+    outline: none;
+  }
 }
 
 .back-button {
@@ -24,6 +28,10 @@
 
   &:hover {
     background: darkorange;
+  }
+
+  &:active {
+    box-shadow: inset 0 0 5px #000;
   }
 }
 
@@ -45,7 +53,10 @@
 
 module.exports = {
   name: 'header',
-  data: () => ({ hoverOnBack: false })
+  data: () => ({ hoverOnBack: false }),
+  methods: {
+    onBack: () => console.info('I clicked back!')
+  }
 }
 
 </script>
