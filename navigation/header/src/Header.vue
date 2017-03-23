@@ -107,12 +107,11 @@
 
     .header-button {
       background-color: transparent;
-      transition: 0.3s background-color, text-shadow ease;
+      transition: 0.3s background-color ease;
 
       &:hover {
         .icon {
           color: darkorange;
-          text-shadow: 0px 0px 5px darkorange;
         }
       }
     }
