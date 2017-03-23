@@ -5,48 +5,47 @@
 </template>
 
 <style scoped lang="scss">
-* {
-  box-sizing: border-box;
-  cursor: default;
-  margin: 0;
-  padding: 0;
+  * {
+    box-sizing: border-box;
+    cursor: default;
+    margin: 0;
+    padding: 0;
 
-  &:focus {
-    outline: none;
-  }
-}
-
-.back-button {
-  background: darkturquoise;
-  border: none;
-  color: white;
-  display: flex;
-  height: 100%;
-  justify-content: center;
-  transition: background 0.3s ease;
-  width: 32px;
-
-  &:hover {
-    background: darkorange;
+    &:focus {
+      outline: none;
+    }
   }
 
-  &:active {
-    box-shadow: inset 0 0 5px #000;
+  .back-button {
+    background: darkturquoise;
+    border: none;
+    color: white;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    transition: background 0.3s ease;
+    width: 32px;
+
+    &:hover {
+      background: darkorange;
+    }
+
+    &:active {
+      box-shadow: inset 0 0 5px #000;
+    }
   }
-}
 
+  .back-icon {
+    font-size: 2.5em;
+  }
 
-.back-icon {
-  font-size: 2.5em;
-}
-
-.header-wrapper {
-  background: black;
-  display: flex;
-  flex-direction: row;
-  height: 65px;
-  width: 100%;
-}
+  .header-wrapper {
+    background: black;
+    display: flex;
+    flex-direction: row;
+    height: 65px;
+    width: 100%;
+  }
 </style>
 
 <script>
