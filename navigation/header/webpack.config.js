@@ -106,4 +106,8 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.vue', '.scss']
   }
+  //
+  // externals: {
+  //   vue: 'umd vue'
+  // }
 };
