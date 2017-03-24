@@ -1,5 +1,5 @@
 <template>
-  <div id="header-template" class="header-wrapper">
+  <header id="header-template" class="header-wrapper">
     <button class="header-button back-button" @click="onBack">
       <i class="fa fa-angle-left back-icon"></i>
     </button>
@@ -29,7 +29,7 @@
         </button>
       </div>
     </div>
-  </div>
+  </header>
 </template>
 
 <style scoped lang="scss">
