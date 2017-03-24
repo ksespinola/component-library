@@ -1,37 +1,3 @@
-<template>
-  <header id="header-template" class="header-wrapper">
-    <button class="header-button back-button" @click="onBack">
-      <i class="fa fa-angle-left back-icon"></i>
-    </button>
-
-    <div class="navigation">
-      <button class="header-button photo-container"></button>
-      <div class="selection-container"></div>
-      <div class="divider"></div>
-      <div class="selection-container"></div>
-      <div class="divider"></div>
-      <div class="selection-container"></div>
-    </div>
-
-    <div class="justify-right">
-      <div class="icon-container">
-        <button class="header-button">
-          <i class="icon fa fa-plug"></i>
-        </button>
-        <button class="header-button">
-          <i class="icon fa fa-question-circle"></i>
-        </button>
-        <button class="header-button">
-          <i class="icon fa fa-bullhorn"></i>
-        </button>
-        <button class="header-button">
-          <i class="icon fa fa-circle"></i>
-        </button>
-      </div>
-    </div>
-  </header>
-</template>
-
 <style scoped lang="scss">
   * {
     box-sizing: border-box;
@@ -164,9 +130,45 @@
 
 module.exports = {
   name: 'header',
-  data: () => ({ hoverOnBack: false }),
+
   methods: {
-    onBack: () => console.info('I clicked back!')
+    onBack() { console.info('I clicked back!'); }
+  },
+
+  render(h) {
+    return (
+      <header id='header-template' class='header-wrapper'>
+        <button class='header-button back-button' onClick={this.onBack}>
+          <i class='fa fa-angle-left back-icon'></i>
+        </button>
+
+        <div class='navigation'>
+          <button class='header-button photo-container'></button>
+          <div class='selection-container'></div>
+          <div class='divider'></div>
+          <div class='selection-container'></div>
+          <div class='divider'></div>
+          <div class='selection-container'></div>
+        </div>
+
+        <div class='justify-right'>
+          <div class='icon-container'>
+            <button class='header-button'>
+              <i class='icon fa fa-plug'></i>
+            </button>
+            <button class='header-button'>
+              <i class='icon fa fa-question-circle'></i>
+            </button>
+            <button class='header-button'>
+              <i class='icon fa fa-bullhorn'></i>
+            </button>
+            <button class='header-button'>
+              <i class='icon fa fa-circle'></i>
+            </button>
+          </div>
+        </div>
+      </header>
+    );
   }
 }
 
