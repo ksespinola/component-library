@@ -37,7 +37,7 @@
   .divider { // this is weird
     align-self: center;
     background: black;
-    height: 35px;
+    height: 100%;
     max-width: 1px;
   }
 
