@@ -16,6 +16,8 @@
     color: white;
     height: 100%;
     max-width: 32px;
+    text-align: center;
+    text-decoration: none;
 
     &:active {
       box-shadow: inset 0 0 5px black;
@@ -27,8 +29,9 @@
   }
 
   .back-icon {
+    align-self: center;
     cursor: pointer;
-    font-size: 2.5em;
+    font-size: 2em;
   }
 
   .divider { // this is weird
@@ -138,9 +141,9 @@ module.exports = {
   render(h) {
     return (
       <header id='header-template' class='header-wrapper'>
-        <button class='header-button back-button' onClick={this.onBack}>
+        <a class='header-button back-button' onClick={this.onBack}>
           <i class='fa fa-angle-left back-icon'></i>
-        </button>
+        </a>
 
         <div class='navigation'>
           <button class='header-button photo-container'></button>
