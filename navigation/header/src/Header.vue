@@ -134,6 +134,13 @@
 module.exports = {
   name: 'header',
 
+  data: {
+    project: {
+      id: 1,
+      name: 'Knight\'s Errant'
+    }
+  },
+
   methods: {
     onBack() { console.info('I clicked back!'); }
   },
