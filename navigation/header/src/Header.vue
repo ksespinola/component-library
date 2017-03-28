@@ -99,6 +99,14 @@
     height: 100%;
     max-width: 150px;
     min-width: 150px;
+
+    &:active {
+      box-shadow: inset 0 0 5px black;
+    }
+
+    &:hover {
+      background: darkturquoise;
+    }
   }
 
   .justify-right {
@@ -134,10 +142,30 @@
 module.exports = {
   name: 'header',
 
-  data: {
+  data: () => ({
+  }),
+
+  props: {
+    company: {
+      type: Object,
+      default: function() {
+        return {
+          id: 0,
+          name: 'Temp',
+          returnLink: '#'
+        }
+      }
+    },
+
     project: {
-      id: 1,
-      name: 'Knight\'s Errant'
+      type: Object,
+      default: function() {
+        return {
+          id: 0,
+          name: 'Temp',
+          returnLink: '#'
+        };
+      }
     }
   },
 
@@ -146,6 +174,7 @@ module.exports = {
   },
 
   render(h) {
+    console.log(this.project)
     return (
       <header id='header-template' class='header-wrapper'>
         <a class='header-button back-button' onClick={this.onBack}>
@@ -153,7 +182,7 @@ module.exports = {
         </a>
 
         <div class='navigation'>
-          <button class='header-button photo-container'></button>
+          <a class='header-button photo-container' href={this.project.returnLink} onClick={this.onBack}></a>
           <div class='selection-container'></div>
           <div class='divider'></div>
           <div class='selection-container'></div>

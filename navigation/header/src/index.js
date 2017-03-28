@@ -7,5 +7,16 @@ import Header from './Header.vue';
 
 new Vue({
   el: '#root',
-  render: h => h(Header)
+  render: h => h(
+    Header,
+    {
+      props: {
+        project: {
+          id: 1,
+          name: 'Knight\'s Errant',
+          returnLink: '#'
+        }
+      }
+    }
+  )
 });
