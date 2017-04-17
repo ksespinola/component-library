@@ -19,7 +19,7 @@ const Header = ({ headerImg, onBack, returnLink }) =>
         href={returnLink}
         onClick={onBack}
       >
-        {/* <img alt={i18n.logo} src={headerImg} /> */}
+        <img alt={i18n.logo} className={cx(styles.cover, styles.image)} src={headerImg} />
       </a>
       <div className={styles.divider} />
       <div className={styles.selectionContainer} />
