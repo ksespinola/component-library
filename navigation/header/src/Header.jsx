@@ -31,7 +31,7 @@ const Header = ({ headerImg, onBack, returnLink }) =>
     <div className={styles.justifyRight}>
       <div className={styles.iconContainer}>
         <button className={styles.headerButton}>
-          <i className={(styles.icon, 'fa', 'fa-plug')} />
+          <i className={cx(styles.icon, 'fa', 'fa-plug')} />
         </button>
         <button className={styles.headerButton}>
           <i className={cx(styles.icon, 'fa', 'fa-question-circle')} />
