@@ -23,7 +23,7 @@
   }
 
   &:hover {
-    background: darken(darkorange, 2%);
+    background: orange;
   }
 }
 
@@ -102,7 +102,7 @@
 }
 
 .photoContainer {
-  background: white;
+  background: transparent;
   height: 100%;
   max-width: 150px;
   min-width: 150px;
@@ -112,7 +112,7 @@
   }
 
   &:hover {
-    background: darkturquoise;
+    background-color: rgba(0, 0, 0, 0.4);
   }
 }
 

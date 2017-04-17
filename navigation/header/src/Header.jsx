@@ -21,6 +21,7 @@ const Header = ({ headerImg, onBack, returnLink }) =>
       >
         {/* <img alt={i18n.logo} src={headerImg} /> */}
       </a>
+      <div className={styles.divider} />
       <div className={styles.selectionContainer} />
       <div className={styles.divider} />
       <div className={styles.selectionContainer} />
