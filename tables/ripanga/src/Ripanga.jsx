@@ -28,6 +28,7 @@ export default class Ripanga extends React.Component {
     idKey: 'id',
     panelPosition: 'right',
     showCheckboxes: false,
+<<<<<<< HEAD
     sorting: {
       change: ({ sortable, sortKey }) => {
         const url = window.location.href.split('?');
@@ -60,6 +61,38 @@ export default class Ripanga extends React.Component {
 
         return sortable && params.sort.attribute === sortKey && params.sort.direction;
       }
+=======
+    onSort: ({ sortable, sortKey }) => {
+      const url = window.location.href.split('?');
+      const params = qs.parse(url[1]);
+
+      if (sortable === false) {
+        return;
+      }
+
+      const attribute = sortKey;
+      const direction = (params.sort.attribute === attribute
+        && params.sort.direction === DIRECTION.ASC
+        ? DIRECTION.DESC
+        : DIRECTION.ASC);
+
+      params.sort = { attribute, direction };
+      params.page = 1;
+
+      sessionStorage.setItem(`${globalKey}/SORT`, JSON.stringify(params.sort));
+
+      history.pushState(
+        history.state,
+        '',
+        `${url[0]}?${qs.stringify(params, { arrayFormat: 'brackets' })}`,
+      );
+    },
+    sortDirection: ({ sortable, sortKey }) => {
+      const url = window.location.href.split('?');
+      const params = qs.parse(url[1]);
+
+      return definition.sortable && params.sort.attribute === sortKey && params.sort.direction
+>>>>>>> pass column def to onSort. Allow url changes of header cell to be configured through props. Set defaultProps to support current functionality.
     }
   }
 
