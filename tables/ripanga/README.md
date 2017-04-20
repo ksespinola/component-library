@@ -15,6 +15,7 @@ A table component with self-managed checkboxes, sticky head, sticky right panel,
 />
 ```
 ##### 1.0.10
+>>>>>>> update readme change log
 - Allow for sortDirection
 - Pass current definition to onSort
 - Move url manipultion of ColumnHeader to onSort prop function
