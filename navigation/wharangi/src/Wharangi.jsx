@@ -13,7 +13,9 @@ export default class Wharangi extends React.Component {
     perPage: PropTypes.number,
     pagesToShow: PropTypes.number,
     stylesheets: PropTypes.arrayOf(PropTypes.shape()),
-    totalRecords: PropTypes.number
+    totalRecords: PropTypes.number,
+    onMount: PropTypes.func,
+    active: PropTypes.number
   };
 
   static defaultProps = {
@@ -21,7 +23,9 @@ export default class Wharangi extends React.Component {
     perPage: 150,
     pagesToShow: 3,
     stylesheets: [],
-    totalRecords: 0
+    totalRecords: 0,
+    onMount: () => {},
+    active: 1
   };
 
   static updateUrl(newParams) {
@@ -37,27 +41,22 @@ export default class Wharangi extends React.Component {
     super(props);
 
     styles = composeStyles(baseStyles, [defaultStyles, ...props.stylesheets]);
+  }
 
-    const totalPages = Math.ceil(props.totalRecords / props.perPage);
+  componentDidMount() {
+    const { onMount } = this.props;
 
-    const url = window.location.href.split('?');
-    const params = qs.parse(url[1]);
-    const paramPage = parseInt(params.page, 10) || 1;
-    const page = Math.max(1, Math.min(paramPage, totalPages));
-
-    Wharangi.updateUrl({ per_page: props.perPage, page });
-
-    this.state = { activePage: page };
+    onMount();
   }
 
   handleSelect(page) {
-    if (this.state.activePage === page) {
+    const { onSelect, active } = this.props;
+
+    if (active === page) {
       return;
     }
 
-    this.setState({ activePage: page });
-    Wharangi.updateUrl({ page });
-    this.props.onSelect();
+    onSelect(page);
   }
 
   render() {
@@ -65,23 +64,20 @@ export default class Wharangi extends React.Component {
       pagesToShow,
       perPage,
       totalRecords,
+      active
     } = this.props;
-
-    const {
-      activePage,
-    } = this.state;
 
     const totalPages = Math.ceil(totalRecords / perPage);
 
     const recordRange = {
-      start: ((activePage - 1) * perPage) + 1,
-      end: Math.min(activePage * perPage, totalRecords),
+      start: ((active - 1) * perPage) + 1,
+      end: Math.min(active * perPage, totalRecords)
     };
 
-    const start = activePage > 2 ? activePage - 1 : 1;
+    const start = active > 2 ? active - 1 : 1;
     const pageRange = {
       start,
-      end: Math.min(start + (pagesToShow - 1), totalPages),
+      end: Math.min(start + (pagesToShow - 1), totalPages)
     };
 
 
@@ -92,44 +88,45 @@ export default class Wharangi extends React.Component {
     const items = [];
     for (let i = pageRange.start; i <= pageRange.end; i++) {
       items.push(<button
+        enzyme={`pagination_${i}`}
         key={`page-${i}`}
-        className={cx(styles.item, { [styles.active]: i === activePage })}
+        className={cx(styles.item, { [styles.active]: i === active })}
         onClick={() => this.handleSelect(i)}
       >
         {i}
       </button>);
     }
 
-    const firstitem = (activePage > 2)
+    const firstitem = (active > 2)
       ? (<button
         className={styles.item}
         onClick={() => this.handleSelect(1)}
       >1</button>)
       : null;
 
-    const prev = (activePage > 2)
+    const prev = (active > 2)
       ? (<button
-        onClick={() => this.handleSelect(activePage - 1)}
+        onClick={() => this.handleSelect(active - 1)}
         className={cx('fa', 'fa-angle-left', styles.prev)}
       />)
       : null;
 
-    const prevEllipsis = (activePage > 2)
+    const prevEllipsis = (active > 2)
       ? <span className={styles.ellipsis}>&hellip;</span>
       : null;
 
-    const next = (activePage < totalPages - 1)
+    const next = (active < totalPages - 1)
       ? (<button
-        onClick={() => this.handleSelect(activePage + 1)}
+        onClick={() => this.handleSelect(active + 1)}
         className={cx('fa', 'fa-angle-right', styles.prev)}
       />)
       : null;
 
-    const nextEllipsis = (activePage < totalPages - 1)
+    const nextEllipsis = (active < totalPages - 1)
       ? <span className={styles.ellipsis}>&hellip;</span>
       : null;
 
-    const lastitem = (activePage < totalPages - 1)
+    const lastitem = (active < totalPages - 1)
       ? (<button
         className={styles.item}
         onClick={() => this.handleSelect(totalPages)}
@@ -145,7 +142,7 @@ export default class Wharangi extends React.Component {
     // URL hack pages
 
     return (
-      <div className={styles.paginator}>
+      <div className={cx('paginator', styles.paginator)}>
         <div className={styles.meta}>{`${msg} of ${totalRecords || 0}`}</div>
         {prev}
         {firstitem}
