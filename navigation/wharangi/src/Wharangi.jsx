@@ -142,7 +142,7 @@ export default class Wharangi extends React.Component {
     // URL hack pages
 
     return (
-      <div className={cx('paginator', styles.paginator)}>
+      <div className={styles.paginator}>
         <div className={styles.meta}>{`${msg} of ${totalRecords || 0}`}</div>
         {prev}
         {firstitem}
